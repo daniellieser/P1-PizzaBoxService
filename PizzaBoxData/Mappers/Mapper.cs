@@ -3,7 +3,7 @@ using PizzaBoxData.Entities;
 
 namespace PizzaBoxData
 {
-  public class OrderMapper
+  public class Mapper
   {
     public static PizzaBoxDomain.Models.Order Map(PizzaBoxData.Entities.Order order)
     {

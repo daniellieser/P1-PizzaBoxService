@@ -11,6 +11,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using PizzaBoxDomain;
+using PizzaBoxData;
 
 namespace PizzaBoxService
 {
@@ -28,6 +30,7 @@ namespace PizzaBoxService
         {
 
             services.AddControllers();
+            services.AddScoped<IRepository, Repository>();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "PizzaBoxService", Version = "v1" });
