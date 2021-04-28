@@ -64,7 +64,7 @@ namespace PizzaBoxData
     {
       if (store != null)
       {
-        var dbStore = context.Stores.FirstOrDefault(s => s.StoreId == store.storeID);
+        var dbStore = context.Stores.FirstOrDefault(s => s.StoreId == store.StoreId);
         if (dbStore != null)
         {
           return dbStore;
@@ -73,15 +73,15 @@ namespace PizzaBoxData
 
       PizzaBoxData.Entities.Store s = new PizzaBoxData.Entities.Store();
 
-      s.StoreId = store.storeID;
-      s.StoreName = store.storeName;
+      s.StoreId = store.StoreId;
+      s.StoreName = store.Name;
       return s;
     }
     public static PizzaBoxDomain.Models.Store Map(PizzaBoxData.Entities.Store store)
     {
       PizzaBoxDomain.Models.Store s = new PizzaBoxDomain.Models.Store();
-      s.storeID = store.StoreId;
-      s.storeName = store.StoreName;
+      s.StoreId = store.StoreId;
+      s.Name = store.StoreName;
       return s;
     }
 

@@ -13,6 +13,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using PizzaBoxDomain;
 using PizzaBoxData;
+using Microsoft.EntityFrameworkCore;
 
 namespace PizzaBoxService
 {
@@ -29,8 +30,10 @@ namespace PizzaBoxService
         public void ConfigureServices(IServiceCollection services)
         {
 
-            services.AddControllers();
+            services.AddControllers().AddControllersAsServices();
+            services.AddDbContext<PizzaBoxData.Entities.Context>(options => options.UseSqlServer("Server=tcp:pizzaboxlieser.database.windows.net,1433;Initial Catalog=PizzaBoxDb;User ID=dev;Password=Password123"));
             services.AddScoped<IRepository, Repository>();
+            
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "PizzaBoxService", Version = "v1" });
@@ -44,7 +47,8 @@ namespace PizzaBoxService
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "PizzaBoxService v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("v1/swagger.json", "PizzaBoxService v1"));
+                //app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "PizzaBoxService v1"));
             }
 
             app.UseHttpsRedirection();

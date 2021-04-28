@@ -1,16 +1,16 @@
 using System.Xml.Serialization;
-using PizzaBox.Domain.Models;
+using PizzaBoxDomain.Models;
 
 namespace PizzaBoxDomain.Abstracts
 {
   /// <summary>
   /// Represents the Store Abstract Class
   /// </summary>
-  [XmlInclude(typeof(ChicagoStore))]
-  [XmlInclude(typeof(NewYorkStore))]
+ 
   public class AStore
   {
     public string Name { get; set; }
+    public int StoreId { get; set; }
 
     public AStore()
     {

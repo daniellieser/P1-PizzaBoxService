@@ -7,10 +7,10 @@ namespace PizzaBoxDomain.Models
   /// </summary>
   public class Store : AStore
   {
-    public int storeID;
-    public string storeName;
 
-    public void Save()
+      
+
+        public void Save()
     {
 
     }
