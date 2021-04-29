@@ -34,9 +34,7 @@ namespace PizzaBoxData.Entities
             {
                 entity.ToTable("order");
 
-                entity.Property(e => e.OrderId).HasColumnName("orderID");
-
-                entity.Property(e => e.StoreId).HasColumnName("storeID");
+            
 
                 entity.Property(e => e.StoreName)
                     .HasMaxLength(50)
@@ -62,10 +60,7 @@ namespace PizzaBoxData.Entities
                     .IsUnicode(false)
                     .HasColumnName("userName");
 
-                entity.HasOne(d => d.Store)
-                    .WithMany(p => p.Orders)
-                    .HasForeignKey(d => d.StoreId)
-                    .HasConstraintName("FK_order_store");
+               
 
                 entity.HasOne(d => d.User)
                     .WithMany(p => p.Orders)

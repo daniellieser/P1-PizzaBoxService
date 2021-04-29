@@ -12,20 +12,23 @@ namespace PizzaBoxDomain.Models
   /// </summary>
   public class Order
   {
-    public Store Store { get; set; }
-    public Customer Customer { get; set; }
+    //public Store Store { get; set; }
+  public Customer Customer { get; set; }
+    public string UserName { get; set; }
     public List<APizza> Pizzas { get; set; }
     public string Summary { get; set; }
     public User User { get; set; }
+    public int OrderId { get; set; }
 
     public DateTime? Time { get; set; }
 
     public Order()
     {
-      Store = new Store();
+     //Store = new Store();
       Customer = new Customer();
       User = new User();
       Pizzas = new List<APizza>();
+            UserName = "username";
     }
     public virtual decimal GetPrice()
     {

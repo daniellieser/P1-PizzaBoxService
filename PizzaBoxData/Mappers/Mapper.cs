@@ -10,10 +10,11 @@ namespace PizzaBoxData
       PizzaBoxDomain.Models.Order o = new PizzaBoxDomain.Models.Order();
       o.Customer = new PizzaBoxDomain.Models.Customer();
       o.Customer.customerID = order.UserName;
-      o.Store = new PizzaBoxDomain.Models.Store();
-      o.Store.Name = order.StoreName;
+      //o.Store = new PizzaBoxDomain.Models.Store();
+     // o.Store.Name = order.StoreName;
       o.Time = order.TimeReceived;
       o.Summary = order.Summary;
+           
       //o.GetPrice() = order.Total;
       //order.Summary = o.ToString();
       // order.TimeReceived = new System.DateTime();
@@ -23,11 +24,11 @@ namespace PizzaBoxData
     public static PizzaBoxData.Entities.Order Map(PizzaBoxDomain.Models.Order order, Context context)
     {
       PizzaBoxData.Entities.Order o = new PizzaBoxData.Entities.Order();
-      o.Store = Map(order.Store, context);
-      o.StoreName = o.Store.StoreName;
+     // o.Store = Map(order.Store, context);
+     // o.StoreName = o.Store.StoreName;
       o.User = Map(order.User, context);
       o.UserName = o.User.UserName;
-
+           
       o.Total = order.GetPrice();
       o.Summary = order.ToString();
       o.TimeReceived = System.DateTime.Now;
@@ -45,10 +46,12 @@ namespace PizzaBoxData
         }
       }
       PizzaBoxData.Entities.User u = new PizzaBoxData.Entities.User();
-
-      u.UserId = user.userID;
-      u.UserName = user.userName;
-      u.UserPhone = user.userPhone;
+            if (user != null)
+            {
+                u.UserId = user.userID;
+                u.UserName = user.userName;
+                u.UserPhone = user.userPhone;
+            }
       return u;
     }
     public static PizzaBoxDomain.Models.User Map(PizzaBoxData.Entities.User user)
@@ -72,11 +75,14 @@ namespace PizzaBoxData
       }
 
       PizzaBoxData.Entities.Store s = new PizzaBoxData.Entities.Store();
-
-      s.StoreId = store.StoreId;
-      s.StoreName = store.Name;
-      return s;
-    }
+            if (store != null)
+            {
+                s.StoreId = store.StoreId;
+                s.StoreName = store.Name;
+                
+            }
+            return s;
+        }
     public static PizzaBoxDomain.Models.Store Map(PizzaBoxData.Entities.Store store)
     {
       PizzaBoxDomain.Models.Store s = new PizzaBoxDomain.Models.Store();

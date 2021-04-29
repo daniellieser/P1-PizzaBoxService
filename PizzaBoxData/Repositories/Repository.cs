@@ -34,7 +34,12 @@ namespace PizzaBoxData
       var storeOrders = context.Orders.Where(x => x.StoreId == storeId);
       return storeOrders.Select(Mapper.Map).ToList();
     }
-    public List<PizzaBoxDomain.Models.Order> GetCustOrders(int custId)
+        public List<PizzaBoxDomain.Models.Order> GetAllOrders()
+        {
+            var allOrders = context.Orders;
+            return allOrders.Select(Mapper.Map).ToList();
+        }
+        public List<PizzaBoxDomain.Models.Order> GetCustOrders(int custId)
     {
       var custOrders = context.Orders.Where(x => x.UserId == custId);
       return custOrders.Select(Mapper.Map).ToList();

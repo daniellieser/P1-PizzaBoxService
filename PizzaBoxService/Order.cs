@@ -14,9 +14,9 @@ namespace PizzaBoxService
         public string Summary { get; set; }
         public int OrderId { get; set; }
         public int? UserId { get; set; }
-        public int? StoreId { get; set; }
+       
 
-        public virtual Store Store { get; set; }
+       // public virtual Store Store { get; set; }
         public virtual User User { get; set; }
     }
 }

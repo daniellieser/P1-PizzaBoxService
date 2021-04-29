@@ -38,10 +38,6 @@ namespace PizzaBoxService
             {
                 entity.ToTable("order");
 
-                entity.Property(e => e.OrderId).HasColumnName("orderID");
-
-                entity.Property(e => e.StoreId).HasColumnName("storeID");
-
                 entity.Property(e => e.StoreName)
                     .HasMaxLength(50)
                     .IsUnicode(false)
@@ -66,10 +62,7 @@ namespace PizzaBoxService
                     .IsUnicode(false)
                     .HasColumnName("userName");
 
-                entity.HasOne(d => d.Store)
-                    .WithMany(p => p.Orders)
-                    .HasForeignKey(d => d.StoreId)
-                    .HasConstraintName("FK_order_store");
+  
 
                 entity.HasOne(d => d.User)
                     .WithMany(p => p.Orders)
@@ -81,9 +74,7 @@ namespace PizzaBoxService
             {
                 entity.ToTable("store");
 
-                entity.Property(e => e.StoreId)
-                    .ValueGeneratedNever()
-                    .HasColumnName("storeID");
+              
 
                 entity.Property(e => e.StoreName)
                     .HasMaxLength(50)
@@ -100,12 +91,12 @@ namespace PizzaBoxService
                     .HasColumnName("UserID");
 
                 entity.Property(e => e.UserName)
-                    .IsRequired()
+                
                     .HasMaxLength(50)
                     .IsUnicode(false);
 
                 entity.Property(e => e.UserPhone)
-                    .IsRequired()
+                    
                     .HasMaxLength(50)
                     .IsUnicode(false);
             });

@@ -6,14 +6,14 @@ namespace PizzaBoxDomain.Abstracts
   /// <summary>
   /// 
   /// </summary>
-  public abstract class APizza
+  public class APizza
   {
     public Crust Crust { get; set; }
     public Size Size { get; set; }
     public List<Topping> Toppings { get; set; }
 
 
-    protected APizza()
+    public APizza()
     {
       Toppings = new List<Topping>();
       Factory();
@@ -25,13 +25,20 @@ namespace PizzaBoxDomain.Abstracts
       SetSize();
       AddToppings();
     }
-    public abstract APizza GetClone();
+        public virtual APizza GetClone() 
+        {
+            APizza pizza = new CustomPizza();
+            pizza.Crust = this.Crust;
+            pizza.Size = this.Size;
+            pizza.Toppings = this.Toppings;
+            return pizza;
+        }
 
-    public abstract void SetCrust();
+        public virtual void SetCrust() { }
 
-    public abstract void SetSize();
+        public virtual void SetSize() { }
 
-    public abstract void AddToppings();
+        public virtual void AddToppings() { }
 
     public virtual decimal GetPrice()
     {
