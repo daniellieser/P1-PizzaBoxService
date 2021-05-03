@@ -44,8 +44,15 @@ namespace PizzaBoxService.Controllers
          [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public void Save(PizzaBoxDomain.Models.Order order)
         {
-            context.Add(Mapper.Map(order, context));
-           
+            var mappedOrder = Mapper.Map(order, context);
+            System.Diagnostics.Debug.WriteLine(" API OrderController  userid: " + order.UserId);
+            System.Diagnostics.Debug.WriteLine(" API OrderController  storeID: " + order.StoreId);
+            System.Diagnostics.Debug.WriteLine(" API OrderController  summary: " + order.Summary);
+            System.Diagnostics.Debug.WriteLine(" Mapper OrderController  userid: " + mappedOrder.UserId);
+            System.Diagnostics.Debug.WriteLine(" Mapper OrderController  storeID: " + mappedOrder.StoreId);
+            System.Diagnostics.Debug.WriteLine(" Mapper OrderController  summary: " + mappedOrder.Summary);
+            context.Add(mappedOrder);
+     
             context.SaveChanges();
          }
 

@@ -8,11 +8,14 @@ namespace PizzaBoxData
     public static PizzaBoxDomain.Models.Order Map(PizzaBoxData.Entities.Order order)
     {
       PizzaBoxDomain.Models.Order o = new PizzaBoxDomain.Models.Order();
-      o.Customer = new PizzaBoxDomain.Models.Customer();
-      o.Customer.customerID = order.UserName;
+      o.User = new PizzaBoxDomain.Models.User();
+      o.OrderId = order.OrderId;
+            o.UserId = order.UserId;
+            o.StoreId = order.StoreId;
+     // o.Customer.customerID = order.UserName;
       //o.Store = new PizzaBoxDomain.Models.Store();
      // o.Store.Name = order.StoreName;
-      o.Time = order.TimeReceived;
+      o.TimeReceived = order.TimeReceived;
       o.Summary = order.Summary;
            
       //o.GetPrice() = order.Total;
@@ -27,10 +30,11 @@ namespace PizzaBoxData
      // o.Store = Map(order.Store, context);
      // o.StoreName = o.Store.StoreName;
       o.User = Map(order.User, context);
-      o.UserName = o.User.UserName;
-           
+      o.StoreId = order.StoreId;
+      o.UserId = order.UserId;
+      o.OrderId = order.OrderId;     
       o.Total = order.GetPrice();
-      o.Summary = order.ToString();
+      o.Summary = order.Summary;
       o.TimeReceived = System.DateTime.Now;
 
       return o;

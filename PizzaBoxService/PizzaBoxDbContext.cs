@@ -38,10 +38,7 @@ namespace PizzaBoxService
             {
                 entity.ToTable("order");
 
-                entity.Property(e => e.StoreName)
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .HasColumnName("storeName");
+         
 
                 entity.Property(e => e.Summary)
                     .HasColumnType("text")
@@ -57,10 +54,7 @@ namespace PizzaBoxService
 
                 entity.Property(e => e.UserId).HasColumnName("userID");
 
-                entity.Property(e => e.UserName)
-                    .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .HasColumnName("userName");
+         
 
   
 
