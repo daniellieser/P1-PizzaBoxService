@@ -10,8 +10,8 @@ namespace PizzaBoxData
       PizzaBoxDomain.Models.Order o = new PizzaBoxDomain.Models.Order();
       o.User = new PizzaBoxDomain.Models.User();
       o.OrderId = order.OrderId;
-            o.UserId = order.UserId;
-            o.StoreId = order.StoreId;
+      o.UserId = order.UserId;
+      o.StoreId = order.StoreId;
      // o.Customer.customerID = order.UserName;
       //o.Store = new PizzaBoxDomain.Models.Store();
      // o.Store.Name = order.StoreName;
@@ -27,9 +27,7 @@ namespace PizzaBoxData
     public static PizzaBoxData.Entities.Order Map(PizzaBoxDomain.Models.Order order, Context context)
     {
       PizzaBoxData.Entities.Order o = new PizzaBoxData.Entities.Order();
-     // o.Store = Map(order.Store, context);
-     // o.StoreName = o.Store.StoreName;
-      o.User = Map(order.User, context);
+   
       o.StoreId = order.StoreId;
       o.UserId = order.UserId;
       o.OrderId = order.OrderId;     

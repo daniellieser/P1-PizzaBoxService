@@ -22,6 +22,6 @@ namespace PizzaBoxData.Entities
         public int? UserId { get; set; }
         public int? StoreId { get; set; }
        // public virtual Store Store { get; set; }
-        public User User { get; set; }
+        
     }
 }

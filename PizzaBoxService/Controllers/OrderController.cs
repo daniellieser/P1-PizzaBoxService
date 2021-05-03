@@ -51,10 +51,14 @@ namespace PizzaBoxService.Controllers
             System.Diagnostics.Debug.WriteLine(" Mapper OrderController  userid: " + mappedOrder.UserId);
             System.Diagnostics.Debug.WriteLine(" Mapper OrderController  storeID: " + mappedOrder.StoreId);
             System.Diagnostics.Debug.WriteLine(" Mapper OrderController  summary: " + mappedOrder.Summary);
-            context.Add(mappedOrder);
-     
+            var result = context.Add(mappedOrder);
+            var orderFromContext = result.Entity;
+            System.Diagnostics.Debug.WriteLine(" Mapper OrderController  orderFromContext.userid: " + orderFromContext.UserId);
+            System.Diagnostics.Debug.WriteLine(" Mapper OrderController  orderFromContext.storeID: " + orderFromContext.StoreId);
+            System.Diagnostics.Debug.WriteLine(" Mapper OrderController  orderFromContext.summary: " + orderFromContext.Summary);
+
             context.SaveChanges();
-         }
+        }
 
 
     }
