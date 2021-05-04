@@ -77,7 +77,7 @@ namespace PizzaBoxData.Entities
                 entity.Property(e => e.UserName)
                     .HasMaxLength(50)
                     .IsUnicode(false)
-                .HasColumnName("UserName");
+                 .HasColumnName("UserName");
 
                 entity.Property(e => e.UserPhone)
                     .HasMaxLength(50)
