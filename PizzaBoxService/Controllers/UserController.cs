@@ -29,13 +29,25 @@ namespace PizzaBoxService.Controllers
             return custOrders.Select(Mapper.Map).ToList();
         }
 
-        [HttpPost("{user}")]
+        //[HttpPost("Create")]
+        [HttpPost]
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public void Save(PizzaBoxDomain.Models.User user)
         {
-            System.Diagnostics.Debug.WriteLine(" UserController   userid: " + user.userID);
-            System.Diagnostics.Debug.WriteLine(" UserController   username: " + user.userName);
-            System.Diagnostics.Debug.WriteLine(" UserController   phone: " + user.userPhone);
-            context.Add(Mapper.Map(user, context));
+            var mappedUser = Mapper.Map(user, context);
+            System.Diagnostics.Debug.WriteLine(" UserController   userid: " + user.UserId);
+            System.Diagnostics.Debug.WriteLine(" UserController   username: " + user.UserName);
+            System.Diagnostics.Debug.WriteLine(" UserController   phone: " + user.UserPhone);
+            System.Diagnostics.Debug.WriteLine("  UserController   userid: " + mappedUser.UserId);
+            System.Diagnostics.Debug.WriteLine("  UserController   username: " + mappedUser.UserName);
+            System.Diagnostics.Debug.WriteLine("  UserController   phone: " + mappedUser.UserPhone);
+            var result = context.Add(mappedUser);
+            var userFromContext = result.Entity;
+            System.Diagnostics.Debug.WriteLine("  UserController userFromContext  userid: " + userFromContext.UserId);
+            System.Diagnostics.Debug.WriteLine("  UserController userFromContext  username: " + userFromContext.UserName);
+            System.Diagnostics.Debug.WriteLine("  UserController  userFromContext phone: " + userFromContext.UserPhone);
+
             context.SaveChanges();
 
         }

@@ -5,10 +5,10 @@ namespace PizzaBoxDomain.Models
   /// </summary>
   public class User
   {
-    public int userID;
-    public string userName;
-    public string userPhone;
-    public void Save()
+    public int UserId { get; set; }
+        public string UserName { get; set; }
+        public string UserPhone { get; set; }
+        public void Save()
     {
 
     }

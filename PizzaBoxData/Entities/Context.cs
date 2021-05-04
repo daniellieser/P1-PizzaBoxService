@@ -77,12 +77,12 @@ namespace PizzaBoxData.Entities
                 entity.Property(e => e.UserName)
                     .HasMaxLength(50)
                     .IsUnicode(false)
-                .HasColumnName("userName");
+                .HasColumnName("UserName");
 
                 entity.Property(e => e.UserPhone)
                     .HasMaxLength(50)
                     .IsUnicode(false)
-                    .HasColumnName("userPhone"); ;
+                    .HasColumnName("UserPhone"); ;
             });
 
             OnModelCreatingPartial(modelBuilder);
