@@ -32,6 +32,9 @@ namespace PizzaBoxService.Controllers
         [HttpPost("{user}")]
         public void Save(PizzaBoxDomain.Models.User user)
         {
+            System.Diagnostics.Debug.WriteLine(" UserController   userid: " + user.userID);
+            System.Diagnostics.Debug.WriteLine(" UserController   username: " + user.userName);
+            System.Diagnostics.Debug.WriteLine(" UserController   phone: " + user.userPhone);
             context.Add(Mapper.Map(user, context));
             context.SaveChanges();
 

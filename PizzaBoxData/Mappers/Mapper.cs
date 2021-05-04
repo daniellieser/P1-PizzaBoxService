@@ -39,27 +39,34 @@ namespace PizzaBoxData
     }
     public static PizzaBoxData.Entities.User Map(PizzaBoxDomain.Models.User user, Context context)
     {
-      if (user != null)
-      {
-        var dbUser = context.Users.FirstOrDefault(u => u.UserId == user.userID);
-        if (dbUser != null)
-        {
-          return dbUser;
-        }
-      }
-      PizzaBoxData.Entities.User u = new PizzaBoxData.Entities.User();
-            if (user != null)
-            {
+            // if (user != null)
+            //{
+            // var dbUser = context.Users.FirstOrDefault(u => u.UserId == user.userID);
+            // if (dbUser != null)
+            // {
+            //   return dbUser;
+            // }
+            //}
+            System.Diagnostics.Debug.WriteLine(" Mapper   userid: " + user.userID);
+            System.Diagnostics.Debug.WriteLine(" Mapper   username: " + user.userName);
+            System.Diagnostics.Debug.WriteLine(" Mapper   phone: " + user.userPhone);
+            PizzaBoxData.Entities.User u = new PizzaBoxData.Entities.User();
+           // if (user != null)
+           // {
                 u.UserId = user.userID;
                 u.UserName = user.userName;
                 u.UserPhone = user.userPhone;
-            }
+            //}
       return u;
     }
     public static PizzaBoxDomain.Models.User Map(PizzaBoxData.Entities.User user)
     {
-      PizzaBoxDomain.Models.User u = new PizzaBoxDomain.Models.User();
-      u.userID = user.UserId;
+         
+            PizzaBoxDomain.Models.User u = new PizzaBoxDomain.Models.User();
+            System.Diagnostics.Debug.WriteLine(" Mapper   userid: " + u.userID);
+            System.Diagnostics.Debug.WriteLine(" Mapper   username: " + u.userName);
+            System.Diagnostics.Debug.WriteLine(" Mapper   phone: " + u.userPhone);
+            u.userID = user.UserId;
       u.userName = user.UserName;
       u.userPhone = user.UserPhone;
       return u;

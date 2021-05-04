@@ -18,5 +18,8 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
   </ItemGroup>
-
+	<ItemGroup>
+		<ProjectReference Include="..\PizzaBoxData\PizzaBoxData.csproj" />
+		<ProjectReference Include="..\PizzaBoxDomain\PizzaBoxDomain.csproj" />
+	</ItemGroup>
 </Project>
